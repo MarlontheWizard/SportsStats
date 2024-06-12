@@ -1,0 +1,36 @@
+ r←get;url;h;ns
+ ⍝ EXAMPLE OF HOW TO HIT NBA API
+ url←'https://stats.nba.com/stats/playerdashboardbyyearoveryearcombined'
+ h←#.HttpCommand.New''
+ h.Command←'GET'
+ h.URL←url
+ h.Headers←('User-Agent' 'Mozilla/5.0 (X11; Linux x86_64; rv:126.0) Gecko/20100101 Firefox/126.0')('Referer' 'https://www.nba.com/')('Origin' 'https://www.nba.com')
+ ⍝ payload
+ ns←⎕NS''
+ :With ns
+     DateFrom←''
+     DateTo←''
+     GameSegment←''
+     LastNGames←'0'
+     LeagueID←'00'
+     Location←''
+     MeasureType←'Base'
+     Month←'0'
+     OpponentTeamID←'0'
+     Outcome←''
+     PORound←'0'
+     PaceAdjust←'N'
+     PerMode←'PerGame'
+     Period←'0'
+     PlayerID←'1629029'
+     PlusMinus←'N'
+     Rank←'N'
+     Season←'2023-24'
+     SeasonSegment←''
+     SeasonType←'Playoffs'
+     ShotClockRange←''
+     VsConference←''
+     VsDivision←''
+ :EndWith
+ h.Params←ns
+ r←(h.Run).Data
