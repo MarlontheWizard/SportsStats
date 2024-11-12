@@ -1,5 +1,6 @@
- r←get;url;h;ns
- ⍝ EXAMPLE OF HOW TO HIT NBA API
+ r←req get_playerdashboardbyyearoveryearcombined args;url;h;ns
+ ⍝ EXAMPLE OF HOW TO HIT NBA API !
+ 'Content-Type'req.SetHeader'application/json'
  url←'https://stats.nba.com/stats/playerdashboardbyyearoveryearcombined'
  h←#.HttpCommand.New''
  h.Command←'GET'
